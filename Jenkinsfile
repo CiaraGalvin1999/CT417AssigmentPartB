@@ -1,20 +1,20 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent any
     stages {
         stage('clean') {
             steps {
-                bat './gradlew clean'
+                sh './gradlew clean'
             }
         }
         stage('build') {
             steps {
-                bat './gradlew build'
+                sh './gradlew build'
             }
         }
         stage('deploy'){
             steps {
-                bat './gradlew war'
-                bat 'echo hello'
+                sh './gradlew war'
+                sh 'echo hello'
             }
         }
     }
