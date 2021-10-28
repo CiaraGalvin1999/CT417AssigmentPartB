@@ -9,14 +9,12 @@ pipeline {
         stage('build') {
             steps {
                 sh './gradlew build'
-
             }
         }
-        stage('test'){
+        stage('deploy'){
             steps {
-                sh './gradlew test'
+                sh './gradlew war'
             }
         }
-
     }
 }
